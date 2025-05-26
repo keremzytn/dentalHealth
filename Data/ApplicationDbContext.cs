@@ -15,6 +15,7 @@ namespace DentalHealthTracker.Data
         public DbSet<GoalStatus> GoalStatuses { get; set; }
         public DbSet<Note> Notes { get; set; }
         public DbSet<Recommendation> Recommendations { get; set; }
+        public DbSet<DentalHealthRecord> DentalHealthRecords { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -23,6 +24,12 @@ namespace DentalHealthTracker.Data
             builder.Entity<User>()
                 .HasIndex(u => u.Email)
                 .IsUnique();
+
+            builder.Entity<DentalHealthRecord>()
+                .HasOne(r => r.User)
+                .WithMany()
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

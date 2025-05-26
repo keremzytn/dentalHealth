@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dZ7f61PrpPRfJR9+JXPA2YghVPmgkWMKly2TZpQW+sM=",
+  "Hash": "arzD8uaTOKiu1nhMOyObjN6FkIckClyhfzlykbBj8Ms=",
   "Source": "DentalHealthTracker",
   "BasePath": "_content/DentalHealthTracker",
   "Mode": "Default",
@@ -1193,6 +1193,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Identity": "/Users/kerem/Projects/DentalHealthTracker/wwwroot/uploads/c6c478fe-6b1f-4413-b7e9-4d28aeaa7bc6.jpeg",
+      "SourceId": "DentalHealthTracker",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/kerem/Projects/DentalHealthTracker/wwwroot/",
+      "BasePath": "_content/DentalHealthTracker",
+      "RelativePath": "uploads/c6c478fe-6b1f-4413-b7e9-4d28aeaa7bc6.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/c6c478fe-6b1f-4413-b7e9-4d28aeaa7bc6.jpeg"
+    },
+    {
+      "Identity": "/Users/kerem/Projects/DentalHealthTracker/wwwroot/uploads/ff54d9e9-5af9-4632-9c77-7df465bba9f1.jpeg",
+      "SourceId": "DentalHealthTracker",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/kerem/Projects/DentalHealthTracker/wwwroot/",
+      "BasePath": "_content/DentalHealthTracker",
+      "RelativePath": "uploads/ff54d9e9-5af9-4632-9c77-7df465bba9f1.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/ff54d9e9-5af9-4632-9c77-7df465bba9f1.jpeg"
     }
   ]
 }

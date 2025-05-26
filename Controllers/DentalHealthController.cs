@@ -8,6 +8,8 @@ using DentalHealthTracker.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using System.Text.Json;
+using Serilog;
 
 namespace DentalHealthTracker.Controllers
 {
@@ -15,10 +17,12 @@ namespace DentalHealthTracker.Controllers
     public class DentalHealthController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<DentalHealthController> _logger;
 
-        public DentalHealthController(ApplicationDbContext context)
+        public DentalHealthController(ApplicationDbContext context, ILogger<DentalHealthController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         public async Task<IActionResult> Index()
@@ -106,15 +110,30 @@ namespace DentalHealthTracker.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddStatus(GoalStatus status, IFormFile image)
+        public async Task<IActionResult> AddStatus([FromForm] GoalStatus status, IFormFile image)
         {
-            if (ModelState.IsValid)
+            try
             {
+                _logger.LogInformation("AddStatus metodu başlatıldı. Form verileri: {@FormData}",
+                    Request.Form.ToDictionary(f => f.Key, f => f.Value.ToString()));
+
+                if (!ModelState.IsValid)
+                {
+                    var errors = string.Join(", ", ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage));
+                    _logger.LogWarning("Model hatası: {Errors}", errors);
+                    TempData["Error"] = $"Durum kaydedilirken bir hata oluştu: {errors}";
+                    return RedirectToAction(nameof(Index));
+                }
+
                 var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
                 if (userId == 0) return RedirectToAction("Login", "Account");
 
                 status.UserId = userId;
                 status.Date = DateTime.UtcNow;
+                status.IsCompleted = Request.Form["IsCompleted"].ToString().ToLower() == "true";
+                _logger.LogDebug("Status oluşturuldu: {@Status}", status);
 
                 if (image != null)
                 {
@@ -125,10 +144,22 @@ namespace DentalHealthTracker.Controllers
                         await image.CopyToAsync(stream);
                     }
                     status.ImagePath = $"/uploads/{fileName}";
+                    _logger.LogInformation("Resim yüklendi: {ImagePath}", status.ImagePath);
                 }
 
                 _context.GoalStatuses.Add(status);
                 await _context.SaveChangesAsync();
+                _logger.LogInformation("Status başarıyla kaydedildi. ID: {StatusId}", status.Id);
+                TempData["Success"] = "Durum başarıyla kaydedildi.";
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Durum kaydedilirken hata oluştu");
+                TempData["Error"] = $"Durum kaydedilirken bir hata oluştu: {ex.Message}";
+                if (ex.InnerException != null)
+                {
+                    TempData["Error"] += $" İç hata: {ex.InnerException.Message}";
+                }
             }
             return RedirectToAction(nameof(Index));
         }

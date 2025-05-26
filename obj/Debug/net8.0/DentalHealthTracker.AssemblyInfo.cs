@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DentalHealthTracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72af7a928279f230de998b9d2a09cca92e938674")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14cddcb8ea6bb5687e4f91fa7f6ac3e2060b29dc")]
 [assembly: System.Reflection.AssemblyProductAttribute("DentalHealthTracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DentalHealthTracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

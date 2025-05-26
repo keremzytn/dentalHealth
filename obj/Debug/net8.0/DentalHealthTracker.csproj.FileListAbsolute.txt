@@ -173,3 +173,16 @@
 /Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 /Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 /Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
+/Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Binder.dll
+/Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll
+/Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Microsoft.Extensions.FileProviders.Abstractions.dll
+/Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Microsoft.Extensions.Hosting.Abstractions.dll
+/Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Serilog.dll
+/Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Serilog.AspNetCore.dll
+/Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Serilog.Extensions.Hosting.dll
+/Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Serilog.Extensions.Logging.dll
+/Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Serilog.Formatting.Compact.dll
+/Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Serilog.Settings.Configuration.dll
+/Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Serilog.Sinks.Console.dll
+/Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Serilog.Sinks.Debug.dll
+/Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Serilog.Sinks.File.dll

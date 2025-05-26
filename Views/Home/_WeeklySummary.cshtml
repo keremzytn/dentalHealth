@@ -1,34 +1,41 @@
-@model List<DentalHealthTracker.Models.DentalHealthRecord>
+@model List<DentalHealthRecord>
 
-<div class="table-responsive">
+@if (Model.Any())
+{
+    <div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
                 <th>Tarih</th>
-                <th>Fırçalama Süresi</th>
-                <th>Diş İpi Kullanımı</th>
+                <th>Durum</th>
                 <th>Notlar</th>
             </tr>
         </thead>
         <tbody>
-            @if (Model != null && Model.Any())
-            {
-                foreach (var record in Model)
+            @foreach (var record in Model)
                 {
                     <tr>
-                        <td>@record.Date.ToShortDateString()</td>
-                        <td>@record.BrushingDuration dakika</td>
-                        <td>@(record.Flossed ? "Evet" : "Hayır")</td>
-                        <td>@record.Notes</td>
+                        <td>@record.Date.ToLocalTime().ToString("dd/MM/yyyy")</td>
+                        <td>
+                            @if (record.IsCompleted)
+                            {
+                                <span class="badge bg-success">Tamamlandı</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning">Beklemede</span>
+                            }
+                        </td>
+                        <td>@(string.IsNullOrEmpty(record.Notes) ? "-" : record.Notes)</td>
                     </tr>
                 }
-            }
-            else
-            {
-                <tr>
-                    <td colspan="4" class="text-center">Henüz kayıt bulunmamaktadır.</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div> 
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="alert alert-info">
+    Son 7 gün içinde kayıt bulunmamaktadır.
+</div>
+}

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using System.Linq;
 using System;
 using DentalHealthTracker.Data;
+using System.Security.Claims;
 
 namespace DentalHealthTracker.Controllers;
 
@@ -42,8 +43,20 @@ public class HomeController : Controller
 
     public IActionResult GetWeeklySummary()
     {
-        _logger.LogInformation("Home/GetWeeklySummary çağrıldı. Kullanıcı: {User}", User.Identity?.Name);
-        return PartialView("_WeeklySummary");
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+        var sevenDaysAgo = DateTime.UtcNow.AddDays(-7);
+
+        var weeklyRecords = _context.DentalHealthRecords
+            .Where(r => r.UserId == userId && r.Date >= sevenDaysAgo)
+            .OrderByDescending(r => r.Date)
+            .ToList();
+
+        if (!weeklyRecords.Any())
+        {
+            return PartialView("_WeeklySummary", new List<DentalHealthRecord>());
+        }
+
+        return PartialView("_WeeklySummary", weeklyRecords);
     }
 
     public IActionResult GetDailyRecommendation()
