@@ -1,0 +1,157 @@
+@model DentalHealthTracker.Models.DentalHealthViewModel
+@{
+    ViewData["Title"] = "Ağız ve Diş Sağlığı";
+}
+
+<div class="container mt-4">
+    <ul class="nav nav-tabs" id="dentalHealthTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="status-tab" data-bs-toggle="tab" data-bs-target="#status" type="button" role="tab">Durum</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="goals-tab" data-bs-toggle="tab" data-bs-target="#goals" type="button" role="tab">Hedefler</button>
+        </li>
+    </ul>
+
+    <div class="tab-content mt-3" id="dentalHealthTabContent">
+        <div class="tab-pane fade show active" id="status" role="tabpanel">
+            <div class="row">
+                <div class="col-md-8">
+                    <h4>Son 7 Günlük Özet</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Tarih</th>
+                                    <th>Hedef</th>
+                                    <th>Durum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var status in Model.RecentStatuses)
+                                {
+                                    <tr>
+                                        <td>@status.Date.ToShortDateString()</td>
+                                        <td>@status.Goal.Title</td>
+                                        <td>@(status.IsCompleted ? "Tamamlandı" : "Tamamlanmadı")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="mt-4">Yeni Durum Ekle</h4>
+                    <form asp-action="AddStatus" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label class="form-label">Hedef</label>
+                            <select name="GoalId" class="form-select" required>
+                                @foreach (var goal in Model.Goals)
+                                {
+                                    <option value="@goal.GoalId">@goal.Title</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tarih</label>
+                            <input type="date" name="Date" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Süre (dakika)</label>
+                            <input type="number" name="Duration" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input type="checkbox" name="IsCompleted" class="form-check-input" />
+                                <label class="form-check-label">Tamamlandı</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Not</label>
+                            <textarea name="Notes" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Görsel</label>
+                            <input type="file" name="Image" class="form-control" accept="image/*" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Günün Önerisi</h5>
+                            <p class="card-text">@Model.CurrentRecommendation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="goals" role="tabpanel">
+            <div class="row">
+                <div class="col-md-8">
+                    <h4>Hedeflerim</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Başlık</th>
+                                    <th>Açıklama</th>
+                                    <th>Periyot</th>
+                                    <th>Önem</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var goal in Model.Goals)
+                                {
+                                    <tr>
+                                        <td>@goal.Title</td>
+                                        <td>@goal.Description</td>
+                                        <td>@goal.Period</td>
+                                        <td>@goal.Importance</td>
+                                        <td>
+                                            <form asp-action="DeleteGoal" method="post" style="display: inline;">
+                                                <input type="hidden" name="id" value="@goal.GoalId" />
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Bu hedefi silmek istediğinizden emin misiniz?')">Sil</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="mt-4">Yeni Hedef Ekle</h4>
+                    <form asp-action="AddGoal" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Başlık</label>
+                            <input type="text" name="Title" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Açıklama</label>
+                            <textarea name="Description" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Periyot</label>
+                            <select name="Period" class="form-select" required>
+                                <option value="Günlük">Günlük</option>
+                                <option value="Haftalık">Haftalık</option>
+                                <option value="Aylık">Aylık</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Önem Derecesi</label>
+                            <select name="Importance" class="form-select" required>
+                                <option value="Düşük">Düşük</option>
+                                <option value="Orta">Orta</option>
+                                <option value="Yüksek">Yüksek</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
