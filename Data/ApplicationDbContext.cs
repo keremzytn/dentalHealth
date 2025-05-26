@@ -25,4 +25,4 @@ namespace DentalHealthTracker.Data
                 .IsUnique();
         }
     }
-} 
+}

@@ -1,6 +1,10 @@
-@model string
+@model DentalHealthTracker.Models.Recommendation
 
-<div class="alert alert-info">
-    <h5 class="alert-heading">Günün Önerisi</h5>
-    <p>@Model</p>
-</div> 
+@if (Model != null)
+{
+    <p class="mb-0">@Model.Content</p>
+}
+else
+{
+    <p class="text-muted">Henüz öneri bulunmamaktadır.</p>
+}

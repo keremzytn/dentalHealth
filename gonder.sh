@@ -3,14 +3,17 @@
 # Kullanıcıdan repo URL'si alınır
 read -p "GitHub repo URL'sini gir (örnek: https://github.com/kullanici/repo.git): " REPO_URL
 
+# Kullanıcıdan commit mesajı alınır
+read -p "Commit mesajını gir: " COMMIT_MSG
+
 # Git başlatılır
 git init
 
 # Dosyalar eklenir
 git add .
 
-# Commit yapılır
-git commit -m "İlk yükleme"
+# Kullanıcının girdiği mesajla commit yapılır
+git commit -m "$COMMIT_MSG"
 
 # Ana dal main olarak ayarlanır
 git branch -M main

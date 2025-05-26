@@ -25,7 +25,7 @@ namespace DentalHealthTracker.Controllers
         {
             var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
             if (userId == 0) return RedirectToAction("Login", "Account");
-            
+
             var sevenDaysAgo = DateTime.UtcNow.AddDays(-7);
 
             var viewModel = new DentalHealthViewModel
@@ -47,15 +47,38 @@ namespace DentalHealthTracker.Controllers
         [HttpPost]
         public async Task<IActionResult> AddGoal(Goal goal)
         {
-            if (ModelState.IsValid)
+            try
             {
+                if (!ModelState.IsValid)
+                {
+                    var errors = string.Join(", ", ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage));
+                    TempData["Error"] = $"Model hatası: {errors}";
+                    return RedirectToAction(nameof(Index));
+                }
+
                 var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
-                if (userId == 0) return RedirectToAction("Login", "Account");
-                
+                if (userId == 0)
+                {
+                    TempData["Error"] = "Kullanıcı bulunamadı.";
+                    return RedirectToAction("Login", "Account");
+                }
+
                 goal.UserId = userId;
                 goal.CreatedDate = DateTime.UtcNow;
                 _context.Goals.Add(goal);
                 await _context.SaveChangesAsync();
+
+                TempData["Success"] = "Hedef başarıyla eklendi.";
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = $"Hedef eklenirken bir hata oluştu: {ex.Message}";
+                if (ex.InnerException != null)
+                {
+                    TempData["Error"] += $" İç hata: {ex.InnerException.Message}";
+                }
             }
             return RedirectToAction(nameof(Index));
         }
@@ -89,7 +112,7 @@ namespace DentalHealthTracker.Controllers
             {
                 var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
                 if (userId == 0) return RedirectToAction("Login", "Account");
-                
+
                 status.UserId = userId;
                 status.Date = DateTime.UtcNow;
 
@@ -115,7 +138,7 @@ namespace DentalHealthTracker.Controllers
             var recommendations = await _context.Recommendations
                 .Where(r => r.IsActive)
                 .ToListAsync();
-            
+
             if (!recommendations.Any())
                 return "Henüz öneri bulunmamaktadır.";
 
@@ -124,4 +147,4 @@ namespace DentalHealthTracker.Controllers
             return recommendations[index].Content;
         }
     }
-} 
+}

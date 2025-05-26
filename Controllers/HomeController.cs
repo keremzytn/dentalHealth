@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using DentalHealthTracker.Models;
 using Microsoft.Extensions.Logging;
+using System.Linq;
+using System;
+using DentalHealthTracker.Data;
 
 namespace DentalHealthTracker.Controllers;
 
@@ -10,10 +13,12 @@ namespace DentalHealthTracker.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly ApplicationDbContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
     {
         _logger = logger;
+        _context = context;
     }
 
     public IActionResult Index()
@@ -43,7 +48,11 @@ public class HomeController : Controller
 
     public IActionResult GetDailyRecommendation()
     {
-        _logger.LogInformation("Home/GetDailyRecommendation çağrıldı. Kullanıcı: {User}", User.Identity?.Name);
-        return PartialView("_DailyRecommendation");
+        var random = new Random();
+        var recommendation = _context.Recommendations
+            .OrderBy(r => Guid.NewGuid())
+            .FirstOrDefault();
+
+        return PartialView("_DailyRecommendation", recommendation);
     }
 }
