@@ -4,5 +4,6 @@ namespace DentalHealthTracker.Services
     {
         Task<bool> SendEmailAsync(string to, string subject, string body);
         Task<bool> SendPasswordResetEmailAsync(string to, string resetLink);
+        Task<bool> SendWelcomeEmailAsync(string to, string userName);
     }
 }

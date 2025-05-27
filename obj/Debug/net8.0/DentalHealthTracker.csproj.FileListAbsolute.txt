@@ -132,11 +132,6 @@
 /Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
 /Users/kerem/Projects/DentalHealthTracker/obj/Debug/net8.0/staticwebassets.build.json
 /Users/kerem/Projects/DentalHealthTracker/obj/Debug/net8.0/staticwebassets.development.json
-/Users/kerem/Projects/DentalHealthTracker/obj/Debug/net8.0/staticwebassets/msbuild.DentalHealthTracker.Microsoft.AspNetCore.StaticWebAssets.props
-/Users/kerem/Projects/DentalHealthTracker/obj/Debug/net8.0/staticwebassets/msbuild.build.DentalHealthTracker.props
-/Users/kerem/Projects/DentalHealthTracker/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.DentalHealthTracker.props
-/Users/kerem/Projects/DentalHealthTracker/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.DentalHealthTracker.props
-/Users/kerem/Projects/DentalHealthTracker/obj/Debug/net8.0/staticwebassets.pack.json
 /Users/kerem/Projects/DentalHealthTracker/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/kerem/Projects/DentalHealthTracker/obj/Debug/net8.0/scopedcss/bundle/DentalHealthTracker.styles.css
 /Users/kerem/Projects/DentalHealthTracker/obj/Debug/net8.0/scopedcss/projectbundle/DentalHealthTracker.bundle.scp.css
@@ -186,3 +181,6 @@
 /Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Serilog.Sinks.Console.dll
 /Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Serilog.Sinks.Debug.dll
 /Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/Serilog.Sinks.File.dll
+/Users/kerem/Projects/DentalHealthTracker/bin/Debug/net8.0/DentalHealthTracker.staticwebassets.endpoints.json
+/Users/kerem/Projects/DentalHealthTracker/obj/Debug/net8.0/staticwebassets.build.json.cache
+/Users/kerem/Projects/DentalHealthTracker/obj/Debug/net8.0/staticwebassets.build.endpoints.json

@@ -94,6 +94,8 @@ namespace DentalHealthTracker.Controllers
                 var result = await _userService.RegisterAsync(model);
                 if (result.Succeeded)
                 {
+                    await _emailService.SendWelcomeEmailAsync(model.Email, model.FullName);
+                    TempData["Message"] = "Kayıt işlemi başarıyla tamamlandı. Giriş yapabilirsiniz.";
                     return RedirectToAction("Login");
                 }
                 ModelState.AddModelError(string.Empty, "Kayıt işlemi başarısız oldu.");
