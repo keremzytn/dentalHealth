@@ -1,0 +1,411 @@
+2025-05-27 13:34:13.692 +03:00 [INF] User profile is available. Using '/Users/kerem/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-05-27 13:34:14.522 +03:00 [INF] Now listening on: http://localhost:5288
+2025-05-27 13:34:14.524 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-27 13:34:14.524 +03:00 [INF] Hosting environment: Development
+2025-05-27 13:34:14.524 +03:00 [INF] Content root path: /Users/kerem/Projects/DentalHealthTracker
+2025-05-27 13:34:14.612 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."ExpiryDate", p."IsUsed", p."Token", p."UserId"
+FROM "PasswordResetTokens" AS p
+WHERE p."ExpiryDate" < now() OR p."IsUsed"
+2025-05-27 13:34:14.741 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "PasswordResetTokens"
+WHERE "Id" = @p0;
+DELETE FROM "PasswordResetTokens"
+WHERE "Id" = @p1;
+DELETE FROM "PasswordResetTokens"
+WHERE "Id" = @p2;
+2025-05-27 13:34:14.756 +03:00 [INF] 3 adet süresi dolmuş token temizlendi.
+2025-05-27 13:34:40.741 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/ - null null
+2025-05-27 13:34:40.744 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-05-27 13:34:40.762 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-05-27 13:34:40.782 +03:00 [INF] AuthenticationScheme: Cookies was challenged.
+2025-05-27 13:34:40.784 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/ - 302 0 null 44.2144ms
+2025-05-27 13:34:40.787 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Account/Login?ReturnUrl=%2F - null null
+2025-05-27 13:34:40.795 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:34:40.805 +03:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:34:40.813 +03:00 [INF] Executing ViewResult, running view Login.
+2025-05-27 13:34:40.947 +03:00 [INF] Executed ViewResult - view Login executed in 132.9905ms.
+2025-05-27 13:34:40.948 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker) in 142.7988ms
+2025-05-27 13:34:40.948 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:34:40.951 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Account/Login?ReturnUrl=%2F - 200 null text/html; charset=utf-8 163.6595ms
+2025-05-27 13:34:40.959 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2025-05-27 13:34:40.959 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/DentalHealthTracker.styles.css?v=N8VorYT3eKztL6IAGMbUHJBwX4xs6jS_Tw3MxLKCxFE - null null
+2025-05-27 13:34:40.959 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - null null
+2025-05-27 13:34:40.961 +03:00 [INF] The file /css/site.css was not modified
+2025-05-27 13:34:40.961 +03:00 [INF] The file /DentalHealthTracker.styles.css was not modified
+2025-05-27 13:34:40.961 +03:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2025-05-27 13:34:40.962 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - 304 null text/css 2.9699ms
+2025-05-27 13:34:40.962 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/DentalHealthTracker.styles.css?v=N8VorYT3eKztL6IAGMbUHJBwX4xs6jS_Tw3MxLKCxFE - 304 null text/css 2.9798ms
+2025-05-27 13:34:40.962 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/css/bootstrap.min.css - 304 null text/css 3.115ms
+2025-05-27 13:34:40.974 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/jquery/dist/jquery.min.js - null null
+2025-05-27 13:34:40.975 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2025-05-27 13:34:40.975 +03:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2025-05-27 13:34:40.975 +03:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2025-05-27 13:34:40.975 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/jquery/dist/jquery.min.js - 304 null text/javascript 0.868ms
+2025-05-27 13:34:40.975 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 304 null text/javascript 0.7742ms
+2025-05-27 13:34:40.979 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2025-05-27 13:34:40.979 +03:00 [INF] The file /js/site.js was not modified
+2025-05-27 13:34:40.979 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 304 null text/javascript 0.4565ms
+2025-05-27 13:34:40.987 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2025-05-27 13:34:40.987 +03:00 [INF] The file /lib/jquery-validation/dist/jquery.validate.min.js was not modified
+2025-05-27 13:34:40.987 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/jquery-validation/dist/jquery.validate.min.js - 304 null text/javascript 0.3899ms
+2025-05-27 13:34:40.988 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - null null
+2025-05-27 13:34:40.988 +03:00 [INF] The file /lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js was not modified
+2025-05-27 13:34:40.988 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - 304 null text/javascript 0.3382ms
+2025-05-27 13:35:13.364 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Account/ForgotPassword - null null
+2025-05-27 13:35:13.374 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.ForgotPassword (DentalHealthTracker)'
+2025-05-27 13:35:13.380 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ForgotPassword() on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:35:13.385 +03:00 [INF] Executing ViewResult, running view ForgotPassword.
+2025-05-27 13:35:13.397 +03:00 [INF] Executed ViewResult - view ForgotPassword executed in 12.7523ms.
+2025-05-27 13:35:13.398 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.ForgotPassword (DentalHealthTracker) in 17.4101ms
+2025-05-27 13:35:13.399 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.ForgotPassword (DentalHealthTracker)'
+2025-05-27 13:35:13.400 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Account/ForgotPassword - 200 null text/html; charset=utf-8 35.127ms
+2025-05-27 13:35:16.585 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5288/Account/ForgotPassword - application/x-www-form-urlencoded 220
+2025-05-27 13:35:16.586 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.ForgotPassword (DentalHealthTracker)'
+2025-05-27 13:35:16.600 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(DentalHealthTracker.Models.ForgotPasswordViewModel) on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:35:16.645 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."BirthDate", u."CreatedAt", u."Email", u."FullName", u."LastLoginDate", u."Password"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-05-27 13:35:16.648 +03:00 [INF] Executing ViewResult, running view ForgotPassword.
+2025-05-27 13:35:16.649 +03:00 [INF] Executed ViewResult - view ForgotPassword executed in 1.6925ms.
+2025-05-27 13:35:16.650 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.ForgotPassword (DentalHealthTracker) in 49.4954ms
+2025-05-27 13:35:16.651 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.ForgotPassword (DentalHealthTracker)'
+2025-05-27 13:35:16.655 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5288/Account/ForgotPassword - 200 null text/html; charset=utf-8 70.3962ms
+2025-05-27 13:35:32.933 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5288/Account/ForgotPassword - application/x-www-form-urlencoded 220
+2025-05-27 13:35:32.934 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.ForgotPassword (DentalHealthTracker)'
+2025-05-27 13:35:32.935 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(DentalHealthTracker.Models.ForgotPasswordViewModel) on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:35:32.987 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."BirthDate", u."CreatedAt", u."Email", u."FullName", u."LastLoginDate", u."Password"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-05-27 13:35:33.013 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."ExpiryDate", p."IsUsed", p."Token", p."UserId"
+FROM "PasswordResetTokens" AS p
+WHERE p."UserId" = @__user_Id_0 AND NOT (p."IsUsed")
+2025-05-27 13:35:33.046 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Boolean), @p2='?', @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "PasswordResetTokens" ("ExpiryDate", "IsUsed", "Token", "UserId")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2025-05-27 13:35:35.033 +03:00 [INF] E-posta başarıyla gönderildi. Alıcı: mustafakeremzeytun2@gmail.com
+2025-05-27 13:35:35.041 +03:00 [INF] Executing RedirectResult, redirecting to /Account/Login.
+2025-05-27 13:35:35.049 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.ForgotPassword (DentalHealthTracker) in 2114.1344ms
+2025-05-27 13:35:35.050 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.ForgotPassword (DentalHealthTracker)'
+2025-05-27 13:35:35.050 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5288/Account/ForgotPassword - 302 0 null 2116.9106ms
+2025-05-27 13:35:35.053 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Account/Login - null null
+2025-05-27 13:35:35.054 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:35:35.054 +03:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:35:35.055 +03:00 [INF] Executing ViewResult, running view Login.
+2025-05-27 13:35:35.064 +03:00 [INF] Executed ViewResult - view Login executed in 8.9184ms.
+2025-05-27 13:35:35.064 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker) in 9.909ms
+2025-05-27 13:35:35.065 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:35:35.065 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Account/Login - 200 null text/html; charset=utf-8 11.7078ms
+2025-05-27 13:35:51.035 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Account/ResetPassword?token=L2e++vn31SHQR2NqHHpjLA89uRlepkp63a1UXahV6rU= - null null
+2025-05-27 13:35:51.036 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.ResetPassword (DentalHealthTracker)'
+2025-05-27 13:35:51.041 +03:00 [INF] Route matched with {action = "ResetPassword", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ResetPassword(System.String) on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:35:51.102 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__token_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."ExpiryDate", p."IsUsed", p."Token", p."UserId", u."Id", u."BirthDate", u."CreatedAt", u."Email", u."FullName", u."LastLoginDate", u."Password"
+FROM "PasswordResetTokens" AS p
+INNER JOIN "Users" AS u ON p."UserId" = u."Id"
+WHERE p."Token" = @__token_0
+LIMIT 1
+2025-05-27 13:35:51.103 +03:00 [INF] Executing RedirectResult, redirecting to /Home/Error.
+2025-05-27 13:35:51.103 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.ResetPassword (DentalHealthTracker) in 62.1096ms
+2025-05-27 13:35:51.103 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.ResetPassword (DentalHealthTracker)'
+2025-05-27 13:35:51.103 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Account/ResetPassword?token=L2e++vn31SHQR2NqHHpjLA89uRlepkp63a1UXahV6rU= - 302 0 null 67.6431ms
+2025-05-27 13:35:51.105 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Home/Error - null null
+2025-05-27 13:35:51.106 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-05-27 13:35:51.106 +03:00 [INF] AuthenticationScheme: Cookies was challenged.
+2025-05-27 13:35:51.106 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Home/Error - 302 0 null 1.1538ms
+2025-05-27 13:35:51.107 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Account/Login?ReturnUrl=%2FHome%2FError - null null
+2025-05-27 13:35:51.108 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:35:51.108 +03:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:35:51.109 +03:00 [INF] Executing ViewResult, running view Login.
+2025-05-27 13:35:51.113 +03:00 [INF] Executed ViewResult - view Login executed in 3.9717ms.
+2025-05-27 13:35:51.113 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker) in 4.5636ms
+2025-05-27 13:35:51.113 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:35:51.113 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Account/Login?ReturnUrl=%2FHome%2FError - 200 null text/html; charset=utf-8 5.7154ms
+2025-05-27 13:37:21.616 +03:00 [INF] Application is shutting down...
+2025-05-27 13:37:30.369 +03:00 [INF] User profile is available. Using '/Users/kerem/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-05-27 13:37:31.178 +03:00 [INF] Now listening on: http://localhost:5288
+2025-05-27 13:37:31.179 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-27 13:37:31.180 +03:00 [INF] Hosting environment: Development
+2025-05-27 13:37:31.180 +03:00 [INF] Content root path: /Users/kerem/Projects/DentalHealthTracker
+2025-05-27 13:37:31.245 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."ExpiryDate", p."IsUsed", p."Token", p."UserId"
+FROM "PasswordResetTokens" AS p
+WHERE p."ExpiryDate" < now() OR p."IsUsed"
+2025-05-27 13:37:31.266 +03:00 [INF] 0 adet süresi dolmuş token temizlendi.
+2025-05-27 13:37:38.860 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/ - null null
+2025-05-27 13:37:38.864 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-05-27 13:37:38.885 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-05-27 13:37:38.891 +03:00 [INF] AuthenticationScheme: Cookies was challenged.
+2025-05-27 13:37:38.893 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/ - 302 0 null 33.933ms
+2025-05-27 13:37:38.896 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Account/Login?ReturnUrl=%2F - null null
+2025-05-27 13:37:38.901 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:37:38.908 +03:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:37:38.917 +03:00 [INF] Executing ViewResult, running view Login.
+2025-05-27 13:37:39.024 +03:00 [INF] Executed ViewResult - view Login executed in 105.7628ms.
+2025-05-27 13:37:39.025 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker) in 116.6012ms
+2025-05-27 13:37:39.025 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:37:39.028 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Account/Login?ReturnUrl=%2F - 200 null text/html; charset=utf-8 131.7129ms
+2025-05-27 13:37:42.066 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-05-27 13:37:42.070 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 3.7207ms
+2025-05-27 13:37:42.070 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5288/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-05-27 13:37:42.364 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - null null
+2025-05-27 13:37:42.382 +03:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map'
+2025-05-27 13:37:42.383 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - 200 327261 text/plain 18.7761ms
+2025-05-27 13:37:42.383 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/css/bootstrap.min.css.map - null null
+2025-05-27 13:37:42.386 +03:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css.map'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map'
+2025-05-27 13:37:42.386 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/css/bootstrap.min.css.map - 200 449111 text/plain 3.0733ms
+2025-05-27 13:37:52.152 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Account/Login?ReturnUrl=%2F - null null
+2025-05-27 13:37:52.158 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:37:52.159 +03:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:37:52.163 +03:00 [INF] Executing ViewResult, running view Login.
+2025-05-27 13:37:52.170 +03:00 [INF] Executed ViewResult - view Login executed in 6.3686ms.
+2025-05-27 13:37:52.170 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker) in 10.8721ms
+2025-05-27 13:37:52.170 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:37:52.171 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Account/Login?ReturnUrl=%2F - 200 null text/html; charset=utf-8 18.3742ms
+2025-05-27 13:37:52.192 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - null null
+2025-05-27 13:37:52.196 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/jquery/dist/jquery.min.js - null null
+2025-05-27 13:37:52.196 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2025-05-27 13:37:52.198 +03:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/css/site.css'
+2025-05-27 13:37:52.198 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - 200 362 text/css 5.9596ms
+2025-05-27 13:37:52.200 +03:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/lib/jquery/dist/jquery.min.js'
+2025-05-27 13:37:52.200 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/jquery/dist/jquery.min.js - 200 89501 text/javascript 3.7955ms
+2025-05-27 13:37:52.201 +03:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css'
+2025-05-27 13:37:52.201 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/css/bootstrap.min.css - 200 162720 text/css 4.9553ms
+2025-05-27 13:37:52.202 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2025-05-27 13:37:52.202 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2025-05-27 13:37:52.203 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/DentalHealthTracker.styles.css?v=N8VorYT3eKztL6IAGMbUHJBwX4xs6jS_Tw3MxLKCxFE - null null
+2025-05-27 13:37:52.202 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2025-05-27 13:37:52.203 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - null null
+2025-05-27 13:37:52.203 +03:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/js/site.js'
+2025-05-27 13:37:52.203 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 0.913ms
+2025-05-27 13:37:52.203 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-05-27 13:37:52.204 +03:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js'
+2025-05-27 13:37:52.204 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78468 text/javascript 1.4316ms
+2025-05-27 13:37:52.204 +03:00 [INF] Sending file. Request path: '/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js'
+2025-05-27 13:37:52.204 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - 200 5824 text/javascript 1.448ms
+2025-05-27 13:37:52.204 +03:00 [INF] Sending file. Request path: '/DentalHealthTracker.styles.css'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/obj/Debug/net8.0/scopedcss/bundle/DentalHealthTracker.styles.css'
+2025-05-27 13:37:52.205 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/DentalHealthTracker.styles.css?v=N8VorYT3eKztL6IAGMbUHJBwX4xs6jS_Tw3MxLKCxFE - 200 1088 text/css 2.247ms
+2025-05-27 13:37:52.204 +03:00 [INF] Sending file. Request path: '/lib/jquery-validation/dist/jquery.validate.min.js'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js'
+2025-05-27 13:37:52.204 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 1.2148ms
+2025-05-27 13:37:52.205 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/jquery-validation/dist/jquery.validate.min.js - 200 24601 text/javascript 2.9822ms
+2025-05-27 13:37:52.206 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5288/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-05-27 13:37:52.233 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/css/bootstrap.min.css.map - null null
+2025-05-27 13:37:52.235 +03:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css.map'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map'
+2025-05-27 13:37:52.235 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/css/bootstrap.min.css.map - 200 449111 text/plain 1.7721ms
+2025-05-27 13:37:52.252 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - null null
+2025-05-27 13:37:52.254 +03:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map'
+2025-05-27 13:37:52.254 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - 200 327261 text/plain 2.035ms
+2025-05-27 13:37:52.507 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/favicon.ico - null null
+2025-05-27 13:37:52.509 +03:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/favicon.ico'
+2025-05-27 13:37:52.509 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/favicon.ico - 200 5430 image/x-icon 1.7468ms
+2025-05-27 13:38:04.853 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/ - null null
+2025-05-27 13:38:04.854 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-05-27 13:38:04.856 +03:00 [INF] AuthenticationScheme: Cookies was challenged.
+2025-05-27 13:38:04.856 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/ - 302 0 null 3.0723ms
+2025-05-27 13:38:04.860 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Account/Login?ReturnUrl=%2F - null null
+2025-05-27 13:38:04.860 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:38:04.860 +03:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:38:04.863 +03:00 [INF] Executing ViewResult, running view Login.
+2025-05-27 13:38:04.866 +03:00 [INF] Executed ViewResult - view Login executed in 3.0655ms.
+2025-05-27 13:38:04.866 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker) in 5.7582ms
+2025-05-27 13:38:04.866 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:38:04.866 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Account/Login?ReturnUrl=%2F - 200 null text/html; charset=utf-8 6.6732ms
+2025-05-27 13:38:04.870 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2025-05-27 13:38:04.873 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - null null
+2025-05-27 13:38:04.873 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/DentalHealthTracker.styles.css?v=N8VorYT3eKztL6IAGMbUHJBwX4xs6jS_Tw3MxLKCxFE - null null
+2025-05-27 13:38:04.873 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/jquery/dist/jquery.min.js - null null
+2025-05-27 13:38:04.873 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2025-05-27 13:38:04.873 +03:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/css/site.css'
+2025-05-27 13:38:04.873 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - 200 362 text/css 0.831ms
+2025-05-27 13:38:04.873 +03:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/lib/jquery/dist/jquery.min.js'
+2025-05-27 13:38:04.873 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2025-05-27 13:38:04.874 +03:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/js/site.js'
+2025-05-27 13:38:04.874 +03:00 [INF] Sending file. Request path: '/DentalHealthTracker.styles.css'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/obj/Debug/net8.0/scopedcss/bundle/DentalHealthTracker.styles.css'
+2025-05-27 13:38:04.874 +03:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css'
+2025-05-27 13:38:04.874 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/jquery/dist/jquery.min.js - 200 89501 text/javascript 0.9552ms
+2025-05-27 13:38:04.875 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/css/bootstrap.min.css - 200 162720 text/css 4.2498ms
+2025-05-27 13:38:04.874 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 1.1353ms
+2025-05-27 13:38:04.874 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/DentalHealthTracker.styles.css?v=N8VorYT3eKztL6IAGMbUHJBwX4xs6jS_Tw3MxLKCxFE - 200 1088 text/css 1.5961ms
+2025-05-27 13:38:04.875 +03:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js'
+2025-05-27 13:38:04.876 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78468 text/javascript 2.7704ms
+2025-05-27 13:38:04.876 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2025-05-27 13:38:04.876 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - null null
+2025-05-27 13:38:04.876 +03:00 [INF] Sending file. Request path: '/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js'
+2025-05-27 13:38:04.876 +03:00 [INF] Sending file. Request path: '/lib/jquery-validation/dist/jquery.validate.min.js'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js'
+2025-05-27 13:38:04.876 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - 200 5824 text/javascript 0.5784ms
+2025-05-27 13:38:04.876 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/lib/jquery-validation/dist/jquery.validate.min.js - 200 24601 text/javascript 0.8958ms
+2025-05-27 13:38:04.901 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/favicon.ico - null null
+2025-05-27 13:38:04.902 +03:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: '/Users/kerem/Projects/DentalHealthTracker/wwwroot/favicon.ico'
+2025-05-27 13:38:04.902 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/favicon.ico - 200 5430 image/x-icon 0.6122ms
+2025-05-27 13:38:06.274 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Account/ForgotPassword - null null
+2025-05-27 13:38:06.275 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.ForgotPassword (DentalHealthTracker)'
+2025-05-27 13:38:06.279 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ForgotPassword() on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:38:06.280 +03:00 [INF] Executing ViewResult, running view ForgotPassword.
+2025-05-27 13:38:06.293 +03:00 [INF] Executed ViewResult - view ForgotPassword executed in 13.1015ms.
+2025-05-27 13:38:06.293 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.ForgotPassword (DentalHealthTracker) in 13.7712ms
+2025-05-27 13:38:06.293 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.ForgotPassword (DentalHealthTracker)'
+2025-05-27 13:38:06.293 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Account/ForgotPassword - 200 null text/html; charset=utf-8 18.964ms
+2025-05-27 13:38:11.765 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5288/Account/ForgotPassword - application/x-www-form-urlencoded 220
+2025-05-27 13:38:11.766 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.ForgotPassword (DentalHealthTracker)'
+2025-05-27 13:38:11.779 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(DentalHealthTracker.Models.ForgotPasswordViewModel) on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:38:11.848 +03:00 [INF] Executed DbCommand (25ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."BirthDate", u."CreatedAt", u."Email", u."FullName", u."LastLoginDate", u."Password"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-05-27 13:38:11.899 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."ExpiryDate", p."IsUsed", p."Token", p."UserId"
+FROM "PasswordResetTokens" AS p
+WHERE p."UserId" = @__user_Id_0 AND NOT (p."IsUsed")
+2025-05-27 13:38:11.986 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p2='?' (DbType = DateTime), @p3='?' (DbType = Boolean), @p4='?', @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "PasswordResetTokens" SET "IsUsed" = @p0
+WHERE "Id" = @p1;
+INSERT INTO "PasswordResetTokens" ("ExpiryDate", "IsUsed", "Token", "UserId")
+VALUES (@p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-05-27 13:38:13.605 +03:00 [INF] E-posta başarıyla gönderildi. Alıcı: mustafakeremzeytun2@gmail.com
+2025-05-27 13:38:13.611 +03:00 [INF] Executing RedirectResult, redirecting to /Account/Login.
+2025-05-27 13:38:13.612 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.ForgotPassword (DentalHealthTracker) in 1832.4276ms
+2025-05-27 13:38:13.612 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.ForgotPassword (DentalHealthTracker)'
+2025-05-27 13:38:13.614 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5288/Account/ForgotPassword - 302 0 null 1848.9614ms
+2025-05-27 13:38:13.615 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Account/Login - null null
+2025-05-27 13:38:13.615 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:38:13.615 +03:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:38:13.616 +03:00 [INF] Executing ViewResult, running view Login.
+2025-05-27 13:38:13.617 +03:00 [INF] Executed ViewResult - view Login executed in 1.447ms.
+2025-05-27 13:38:13.617 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker) in 1.9718ms
+2025-05-27 13:38:13.618 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:38:13.618 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Account/Login - 200 null text/html; charset=utf-8 2.599ms
+2025-05-27 13:38:31.471 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Account/ResetPassword?token=Uy0iDHHtfIC/2uC0tsuvCKWVdUzu9tVfHqcBZBOc4ng= - null null
+2025-05-27 13:38:31.473 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.ResetPassword (DentalHealthTracker)'
+2025-05-27 13:38:31.477 +03:00 [INF] Route matched with {action = "ResetPassword", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ResetPassword(System.String) on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:38:31.569 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__token_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."ExpiryDate", p."IsUsed", p."Token", p."UserId", u."Id", u."BirthDate", u."CreatedAt", u."Email", u."FullName", u."LastLoginDate", u."Password"
+FROM "PasswordResetTokens" AS p
+INNER JOIN "Users" AS u ON p."UserId" = u."Id"
+WHERE p."Token" = @__token_0
+LIMIT 1
+2025-05-27 13:38:31.571 +03:00 [INF] Executing ViewResult, running view ResetPassword.
+2025-05-27 13:38:31.580 +03:00 [INF] Executed ViewResult - view ResetPassword executed in 9.7575ms.
+2025-05-27 13:38:31.581 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.ResetPassword (DentalHealthTracker) in 103.4371ms
+2025-05-27 13:38:31.581 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.ResetPassword (DentalHealthTracker)'
+2025-05-27 13:38:31.581 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Account/ResetPassword?token=Uy0iDHHtfIC/2uC0tsuvCKWVdUzu9tVfHqcBZBOc4ng= - 200 null text/html; charset=utf-8 109.9913ms
+2025-05-27 13:39:11.470 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5288/Account/ResetPassword - application/x-www-form-urlencoded 291
+2025-05-27 13:39:11.471 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.ResetPassword (DentalHealthTracker)'
+2025-05-27 13:39:11.478 +03:00 [INF] Route matched with {action = "ResetPassword", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ResetPassword(DentalHealthTracker.Models.ResetPasswordViewModel) on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:39:11.491 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__token_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."ExpiryDate", p."IsUsed", p."Token", p."UserId", u."Id", u."BirthDate", u."CreatedAt", u."Email", u."FullName", u."LastLoginDate", u."Password"
+FROM "PasswordResetTokens" AS p
+INNER JOIN "Users" AS u ON p."UserId" = u."Id"
+WHERE p."Token" = @__token_0
+LIMIT 1
+2025-05-27 13:39:11.493 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__token_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."ExpiryDate", p."IsUsed", p."Token", p."UserId", u."Id", u."BirthDate", u."CreatedAt", u."Email", u."FullName", u."LastLoginDate", u."Password"
+FROM "PasswordResetTokens" AS p
+INNER JOIN "Users" AS u ON p."UserId" = u."Id"
+WHERE p."Token" = @__token_0
+LIMIT 1
+2025-05-27 13:39:11.825 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p3='?' (DbType = Int32), @p2='?'], CommandType='"Text"', CommandTimeout='30']
+UPDATE "PasswordResetTokens" SET "IsUsed" = @p0
+WHERE "Id" = @p1;
+UPDATE "Users" SET "Password" = @p2
+WHERE "Id" = @p3;
+2025-05-27 13:39:11.827 +03:00 [INF] Executing RedirectResult, redirecting to /Account/ResetPasswordConfirmation.
+2025-05-27 13:39:11.827 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.ResetPassword (DentalHealthTracker) in 347.0416ms
+2025-05-27 13:39:11.827 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.ResetPassword (DentalHealthTracker)'
+2025-05-27 13:39:11.827 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5288/Account/ResetPassword - 302 0 null 356.9865ms
+2025-05-27 13:39:11.831 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Account/ResetPasswordConfirmation - null null
+2025-05-27 13:39:11.831 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-05-27 13:39:11.831 +03:00 [INF] AuthenticationScheme: Cookies was challenged.
+2025-05-27 13:39:11.831 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Account/ResetPasswordConfirmation - 302 0 null 0.6656ms
+2025-05-27 13:39:11.832 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Account/Login?ReturnUrl=%2FAccount%2FResetPasswordConfirmation - null null
+2025-05-27 13:39:11.833 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:39:11.833 +03:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:39:11.833 +03:00 [INF] Executing ViewResult, running view Login.
+2025-05-27 13:39:11.834 +03:00 [INF] Executed ViewResult - view Login executed in 1.0247ms.
+2025-05-27 13:39:11.834 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker) in 1.3382ms
+2025-05-27 13:39:11.834 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:39:11.834 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Account/Login?ReturnUrl=%2FAccount%2FResetPasswordConfirmation - 200 null text/html; charset=utf-8 1.8954ms
+2025-05-27 13:39:30.651 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5288/Account/Login - application/x-www-form-urlencoded 242
+2025-05-27 13:39:30.652 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:39:30.658 +03:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(DentalHealthTracker.Models.LoginViewModel) on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:39:30.664 +03:00 [INF] Login POST çağrıldı. Email: mustafakeremzeytun2@gmail.com
+2025-05-27 13:39:30.668 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."BirthDate", u."CreatedAt", u."Email", u."FullName", u."LastLoginDate", u."Password"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-05-27 13:39:30.901 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."BirthDate", u."CreatedAt", u."Email", u."FullName", u."LastLoginDate", u."Password"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2025-05-27 13:39:30.902 +03:00 [INF] AuthenticationScheme: Cookies signed in.
+2025-05-27 13:39:30.902 +03:00 [INF] Giriş başarılı. Email: mustafakeremzeytun2@gmail.com
+2025-05-27 13:39:30.903 +03:00 [INF] Executing RedirectResult, redirecting to /.
+2025-05-27 13:39:30.903 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker) in 244.3127ms
+2025-05-27 13:39:30.903 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:39:30.903 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5288/Account/Login - 302 0 null 252.4857ms
+2025-05-27 13:39:30.906 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/ - null null
+2025-05-27 13:39:30.907 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.HomeController.Index (DentalHealthTracker)'
+2025-05-27 13:39:30.908 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller DentalHealthTracker.Controllers.HomeController (DentalHealthTracker).
+2025-05-27 13:39:30.908 +03:00 [INF] Home/Index çağrıldı. Kullanıcı: mustafakeremzeytun2@gmail.com
+2025-05-27 13:39:30.909 +03:00 [INF] Executing ViewResult, running view Index.
+2025-05-27 13:39:30.912 +03:00 [INF] Executed ViewResult - view Index executed in 3.0807ms.
+2025-05-27 13:39:30.912 +03:00 [INF] Executed action DentalHealthTracker.Controllers.HomeController.Index (DentalHealthTracker) in 4.0882ms
+2025-05-27 13:39:30.912 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.HomeController.Index (DentalHealthTracker)'
+2025-05-27 13:39:30.912 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/ - 200 null text/html; charset=utf-8 6.545ms
+2025-05-27 13:39:30.934 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Home/GetWeeklySummary - null null
+2025-05-27 13:39:30.934 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Home/GetDailyRecommendation - null null
+2025-05-27 13:39:30.935 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.HomeController.GetWeeklySummary (DentalHealthTracker)'
+2025-05-27 13:39:30.935 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.HomeController.GetDailyRecommendation (DentalHealthTracker)'
+2025-05-27 13:39:30.937 +03:00 [INF] Route matched with {action = "GetDailyRecommendation", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDailyRecommendation() on controller DentalHealthTracker.Controllers.HomeController (DentalHealthTracker).
+2025-05-27 13:39:30.937 +03:00 [INF] Route matched with {action = "GetWeeklySummary", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetWeeklySummary() on controller DentalHealthTracker.Controllers.HomeController (DentalHealthTracker).
+2025-05-27 13:39:30.953 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__sevenDaysAgo_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT d."Id", d."Date", d."ImagePath", d."IsCompleted", d."Notes", d."UserId"
+FROM "DentalHealthRecords" AS d
+WHERE d."UserId" = @__userId_0 AND d."Date" >= @__sevenDaysAgo_1
+ORDER BY d."Date" DESC
+2025-05-27 13:39:30.956 +03:00 [INF] Executing PartialViewResult, running view _WeeklySummary.
+2025-05-27 13:39:30.957 +03:00 [INF] Executed PartialViewResult - view _WeeklySummary executed in 1.6862ms.
+2025-05-27 13:39:30.957 +03:00 [INF] Executed action DentalHealthTracker.Controllers.HomeController.GetWeeklySummary (DentalHealthTracker) in 20.0985ms
+2025-05-27 13:39:30.957 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.HomeController.GetWeeklySummary (DentalHealthTracker)'
+2025-05-27 13:39:30.957 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Home/GetWeeklySummary - 200 null text/html; charset=utf-8 23.0671ms
+2025-05-27 13:39:30.958 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."Content", r."CreatedAt", r."IsActive", r."Title", r."UserId"
+FROM "Recommendations" AS r
+ORDER BY gen_random_uuid()
+LIMIT 1
+2025-05-27 13:39:30.967 +03:00 [INF] Executing PartialViewResult, running view _DailyRecommendation.
+2025-05-27 13:39:30.968 +03:00 [INF] Executed PartialViewResult - view _DailyRecommendation executed in 1.4234ms.
+2025-05-27 13:39:30.968 +03:00 [INF] Executed action DentalHealthTracker.Controllers.HomeController.GetDailyRecommendation (DentalHealthTracker) in 31.657ms
+2025-05-27 13:39:30.968 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.HomeController.GetDailyRecommendation (DentalHealthTracker)'
+2025-05-27 13:39:30.969 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Home/GetDailyRecommendation - 200 null text/html; charset=utf-8 34.26ms
+2025-05-27 13:39:32.538 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5288/Account/Logout - application/x-www-form-urlencoded 225
+2025-05-27 13:39:32.541 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.Logout (DentalHealthTracker)'
+2025-05-27 13:39:32.545 +03:00 [INF] Route matched with {action = "Logout", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:39:32.548 +03:00 [INF] AuthenticationScheme: Cookies signed out.
+2025-05-27 13:39:32.549 +03:00 [INF] Executing RedirectResult, redirecting to /Account/Login.
+2025-05-27 13:39:32.550 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.Logout (DentalHealthTracker) in 4.3438ms
+2025-05-27 13:39:32.550 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.Logout (DentalHealthTracker)'
+2025-05-27 13:39:32.550 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5288/Account/Logout - 302 0 null 12.181ms
+2025-05-27 13:39:32.560 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5288/Account/Login - null null
+2025-05-27 13:39:32.560 +03:00 [INF] Executing endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:39:32.560 +03:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller DentalHealthTracker.Controllers.AccountController (DentalHealthTracker).
+2025-05-27 13:39:32.561 +03:00 [INF] Executing ViewResult, running view Login.
+2025-05-27 13:39:32.563 +03:00 [INF] Executed ViewResult - view Login executed in 2.2736ms.
+2025-05-27 13:39:32.563 +03:00 [INF] Executed action DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker) in 2.8526ms
+2025-05-27 13:39:32.563 +03:00 [INF] Executed endpoint 'DentalHealthTracker.Controllers.AccountController.Login (DentalHealthTracker)'
+2025-05-27 13:39:32.564 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5288/Account/Login - 200 null text/html; charset=utf-8 3.9956ms
+2025-05-27 13:40:01.746 +03:00 [INF] Application is shutting down...

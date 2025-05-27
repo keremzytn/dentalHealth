@@ -16,6 +16,7 @@ namespace DentalHealthTracker.Data
         public DbSet<Note> Notes { get; set; }
         public DbSet<Recommendation> Recommendations { get; set; }
         public DbSet<DentalHealthRecord> DentalHealthRecords { get; set; }
+        public DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -29,6 +30,12 @@ namespace DentalHealthTracker.Data
                 .HasOne(r => r.User)
                 .WithMany()
                 .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<PasswordResetToken>()
+                .HasOne(t => t.User)
+                .WithMany()
+                .HasForeignKey(t => t.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

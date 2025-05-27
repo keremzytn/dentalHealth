@@ -13,11 +13,19 @@ namespace DentalHealthTracker.Controllers
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
+        private readonly IEmailService _emailService;
+        private readonly IPasswordResetService _passwordResetService;
         private readonly ILogger<AccountController> _logger;
 
-        public AccountController(IUserService userService, ILogger<AccountController> logger)
+        public AccountController(
+            IUserService userService,
+            IEmailService emailService,
+            IPasswordResetService passwordResetService,
+            ILogger<AccountController> logger)
         {
             _userService = userService;
+            _emailService = emailService;
+            _passwordResetService = passwordResetService;
             _logger = logger;
         }
 
@@ -104,7 +112,7 @@ namespace DentalHealthTracker.Controllers
         [HttpGet]
         public IActionResult Profile()
         {
-            var user = _userService.GetUserByEmailAsync(User.Identity.Name).Result;
+            var user = _userService.GetUserByEmailAsync(User.Identity?.Name ?? string.Empty).Result;
             if (user == null)
             {
                 return NotFound();
@@ -129,7 +137,7 @@ namespace DentalHealthTracker.Controllers
                 return View("Profile", model);
             }
 
-            var result = await _userService.UpdateProfileAsync(User.Identity.Name, model);
+            var result = await _userService.UpdateProfileAsync(User.Identity?.Name ?? string.Empty, model);
             if (!result.Succeeded)
             {
                 TempData["ErrorMessage"] = result.Message;
@@ -155,7 +163,7 @@ namespace DentalHealthTracker.Controllers
                 return View(model);
             }
 
-            var result = await _userService.ChangePasswordAsync(User.Identity.Name, model);
+            var result = await _userService.ChangePasswordAsync(User.Identity?.Name ?? string.Empty, model);
             if (!result.Succeeded)
             {
                 TempData["ErrorMessage"] = result.Message;
@@ -165,5 +173,87 @@ namespace DentalHealthTracker.Controllers
             TempData["SuccessMessage"] = "Şifreniz başarıyla güncellendi.";
             return RedirectToAction(nameof(Profile));
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _passwordResetService.CreatePasswordResetTokenAsync(model.Email);
+                if (result.Succeeded)
+                {
+                    TempData["Message"] = "Şifre sıfırlama bağlantısı e-posta adresinize gönderildi.";
+                    return RedirectToAction(nameof(Login));
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, result.Message);
+                }
+            }
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult ForgotPasswordConfirmation()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPassword(string token)
+        {
+            if (string.IsNullOrEmpty(token))
+            {
+                TempData["ErrorMessage"] = "Geçersiz şifre sıfırlama bağlantısı.";
+                return RedirectToAction("Error", "Home");
+            }
+
+            var validationResult = await _passwordResetService.ValidateTokenAsync(token);
+            if (!validationResult.Succeeded)
+            {
+                TempData["ErrorMessage"] = validationResult.Message;
+                return RedirectToAction("Error", "Home");
+            }
+
+            var model = new ResetPasswordViewModel { Token = token };
+            return View(model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["ErrorMessage"] = "Lütfen tüm alanları doğru şekilde doldurun.";
+                return View(model);
+            }
+
+            var result = await _passwordResetService.ResetPasswordAsync(model.Token, model.NewPassword);
+            if (!result.Succeeded)
+            {
+                TempData["ErrorMessage"] = result.Message;
+                return View(model);
+            }
+
+            TempData["SuccessMessage"] = "Şifreniz başarıyla sıfırlandı. Yeni şifrenizle giriş yapabilirsiniz.";
+            return RedirectToAction("ResetPasswordConfirmation");
+        }
+
+        [HttpGet]
+        public IActionResult ResetPasswordConfirmation()
+        {
+            return View();
+        }
     }
-} 
+}
